@@ -1,0 +1,94 @@
+/* nav: floating theorem chip + matrix index */
+.nav { position: sticky; top: 0; z-index: 30; padding: 14px 0; pointer-events: none; }
+.navin { max-width: 1240px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.navin > * { pointer-events: auto; }
+.brand { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 16px; text-decoration: none; color: var(--ink); background: rgba(251,250,246,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line); }
+.brand:hover { color: var(--ink); }
+.brand b { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 22px; letter-spacing: -.01em; }
+.brand span { font-weight: 600; font-size: 18px; letter-spacing: -.02em; white-space: nowrap; }
+
+.thm { display: flex; align-items: center; height: 52px; padding: 0 6px; background: var(--ink); color: var(--paper); box-shadow: 0 10px 30px -12px rgba(13,14,18,.5); }
+.thm button { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; color: var(--paper); cursor: pointer; }
+.thm button:hover { background: rgba(244,243,238,.12); }
+.thm button:disabled { opacity: .3; cursor: default; background: transparent; }
+.thm button:focus-visible { outline-color: var(--lilac); outline-offset: -2px; }
+.frac { display: inline-flex; flex-direction: column; align-items: center; font-family: var(--serif); font-size: 15px; line-height: 1; padding: 0 10px; border-left: 1px solid rgba(244,243,238,.18); border-right: 1px solid rgba(244,243,238,.18); }
+.frac b { font-weight: 500; color: var(--lilac); padding: 0 4px 3px; border-bottom: 1.5px solid var(--paper); }
+.frac span { padding-top: 3px; }
+.thml { display: flex; flex-direction: column; gap: 2px; width: 170px; padding: 0 14px; }
+.thml small { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.thml strong { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 19px; white-space: nowrap; animation: lblin .4s var(--ease); }
+@keyframes lblin { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.navr { display: flex; align-items: center; gap: 8px; }
+.idx { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px; background: rgba(251,250,246,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line); font: inherit; font-weight: 600; font-size: 15px; color: var(--ink); cursor: pointer; }
+.idx:hover { border-color: var(--ink); }
+.idx, .talk, .brand, .thm { flex: none; }
+.bk { font-family: var(--serif); font-size: 20px; color: var(--accent); letter-spacing: .1em; white-space: nowrap; }
+.talk { display: inline-flex; align-items: center; gap: 8px; height: 52px; padding: 0 20px; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
+.talk:hover { color: var(--paper); background: var(--accent); }
+
+/* the index overlay */
+.ov { position: fixed; inset: 0; z-index: 40; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; gap: 24px; padding: 28px 40px 40px; overflow-y: auto; animation: ovin .45s var(--ease); }
+@keyframes ovin { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+.ov :focus-visible { outline-color: var(--lilac); }
+.ovtop { display: flex; justify-content: space-between; align-items: center; gap: 16px; max-width: 1240px; width: 100%; margin: 0 auto; }
+.ovtop :global(.mono) { color: var(--dim); }
+.ovx { flex: none; width: 52px; height: 52px; border: 1px solid rgba(244,243,238,.3); background: transparent; color: var(--paper); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.ovx:hover { background: var(--paper); color: var(--ink); }
+.ovh { max-width: 1240px; width: 100%; margin: 0 auto; font-family: var(--serif); font-size: 44px; font-weight: 500; line-height: 1.1; }
+.ovh i { color: var(--lilac); }
+.mwrap { position: relative; max-width: 1240px; width: 100%; margin: 0 auto; padding: 18px 40px; }
+.mwrap::before, .mwrap::after { content: ""; position: absolute; top: 0; bottom: 0; width: 22px; border: 3px solid var(--lilac); }
+.mwrap::before { left: 0; border-right: 0; }
+.mwrap::after { right: 0; border-left: 0; }
+.mgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; list-style: none; margin: 0; padding: 0; }
+.mc { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: 128px; height: 100%; padding: 20px; text-decoration: none; color: var(--paper); border: 1px solid rgba(244,243,238,.14); animation: mcin .5s var(--ease) both; transition: background .2s, color .2s; }
+@keyframes mcin { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
+.mc:hover { background: var(--paper); color: var(--ink); }
+.mc.on { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.mc i { font-family: var(--serif); font-size: 20px; color: var(--lilac); }
+.mc i sub { font-size: .62em; }
+.mc:hover i { color: var(--accent); }
+.mc b { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 26px; }
+.mc small { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
+.ovlegal { display: flex; flex-wrap: wrap; gap: 8px 24px; max-width: 1240px; width: 100%; margin: 0 auto; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+.ovlegal a { color: var(--dim); text-decoration: none; min-height: 32px; display: inline-flex; align-items: center; }
+.ovlegal a:hover { color: var(--lilac); }
+
+@media (max-width: 1180px) {
+  .thml { width: auto; max-width: 120px; }
+  .thml strong { overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 980px) {
+  .thml, .idxt { display: none; }
+  .brand { gap: 7px; }
+  .brand b { font-size: 19px; }
+  .brand span { font-size: 16px; }
+  .navin { padding: 0 12px; gap: 6px; }
+  .brand, .idx { padding: 0 12px; }
+  .talk { padding: 0 14px; }
+  .mgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ov { padding: 20px 16px; }
+  .ovh { font-size: 30px; }
+  .mwrap { padding: 14px 28px; }
+}
+/* phones: the section counter keeps its arrows and number; the label was already dropped */
+@media (max-width: 480px) {
+  .navin { padding: 0 8px; gap: 4px; }
+  .brand { padding: 0 10px; }
+  .brand b { font-size: 18px; }
+  .brand span { font-size: 15px; }
+  .thm { padding: 0 2px; }
+  .thm button { width: 34px; }
+  .frac { padding: 0 6px; }
+  .idx { padding: 0 10px; }
+  .talk { padding: 0 12px; font-size: 14px; }
+  .mc { min-height: 112px; padding: 16px; }
+  .mc b { font-size: 22px; }
+  .mwrap { padding: 12px 22px; }
+}
+/* small phones: Let's talk stays reachable through the index (§11) */
+@media (max-width: 400px) {
+  .talk { display: none; }
+}

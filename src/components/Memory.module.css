@@ -1,0 +1,19 @@
+.mem { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.mcard { margin: 0; background: var(--card); border: 1px solid var(--line); }
+.mcard ul { list-style: none; margin: 0; padding: 0; }
+.mhead { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 22px; border-bottom: 1.5px solid var(--ink); }
+.mrow { display: grid; grid-template-columns: minmax(0, 1fr) 120px auto; gap: 18px; align-items: center; padding: 18px 22px; border-bottom: 1px solid var(--line); }
+.mrow:last-child { border-bottom: 0; }
+.mrow b { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.mrow span { font-size: 13.5px; color: var(--mute); }
+.conf { height: 6px; background: rgba(13,14,18,.08); position: relative; }
+.conf i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+.macts { display: flex; gap: 6px; }
+.macts span { display: inline-flex; align-items: center; height: 32px; padding: 0 10px; border: 1px solid var(--line); font-size: 13px; color: var(--ink); }
+
+@media (max-width: 980px) {
+  .mem { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  /* the text leads on small screens */
+  .mem > div { order: -1; }
+  .mrow { grid-template-columns: minmax(0, 1fr); }
+}

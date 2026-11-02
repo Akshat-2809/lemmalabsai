@@ -1,0 +1,11 @@
+.road { margin-top: 52px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.rd { border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.rd.first { border: 1.5px solid var(--ink); background: var(--card); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 10px 14px; border: 1px solid var(--line); font-size: 15px; background: var(--paper); }
+.first .chip { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.rd ul { margin: 0; padding-left: 18px; color: var(--mute); font-size: 15.5px; line-height: 1.7; }
+
+@media (max-width: 980px) {
+  .road { grid-template-columns: minmax(0, 1fr); }
+}

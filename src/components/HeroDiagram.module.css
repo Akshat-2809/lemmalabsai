@@ -1,0 +1,28 @@
+.diag { background: var(--card); border: 1px solid var(--line); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.step { height: 46px; border: 1px solid var(--line); background: transparent; font: inherit; font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); cursor: pointer; text-align: left; padding: 0 12px; position: relative; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.step.on { color: var(--ink); border-color: var(--ink); }
+.step.on::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--accent); animation: prog 2.8s linear; }
+@keyframes prog { from { width: 0; } to { width: 100%; } }
+
+.hx svg { display: block; width: 100%; height: auto; }
+.arch, .run { opacity: 0; transition: opacity .6s; }
+.s1 .arch, .s2 .arch { opacity: 1; }
+.s2 .run { opacity: 1; }
+.ln { stroke-dasharray: 240; stroke-dashoffset: 240; transition: stroke-dashoffset 1s var(--ease); }
+.s1 .ln, .s2 .ln { stroke-dashoffset: 0; }
+.flow { stroke-dasharray: 3 11; animation: flow 1s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -28; } }
+.halo { transform-origin: 260px 160px; animation: halo 2.4s ease-out infinite; }
+@keyframes halo { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
+.bar { transform-box: fill-box; transform-origin: left; transform: scaleX(.08); transition: transform .8s; }
+.s2 .bar { animation: gauge 3.2s ease-in-out infinite alternate; }
+.s2 .b2 { animation-delay: -1.1s; }
+.s2 .b3 { animation-delay: -2s; }
+@keyframes gauge { from { transform: scaleX(.55); } to { transform: scaleX(.95); } }
+.cap { font-family: var(--mono); font-size: 11px; color: var(--mute); letter-spacing: .04em; }
+
+@media (max-width: 560px) {
+  .diag { padding: 14px; }
+  .step { font-size: 10.5px; padding: 0 8px; letter-spacing: .03em; }
+}

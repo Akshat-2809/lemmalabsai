@@ -1,0 +1,14 @@
+.lem { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 56px 0 0; padding: 0; list-style: none; border-top: 1.5px solid var(--ink); }
+.lc { padding: 34px 34px 38px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; position: relative; }
+.lc:nth-child(2n) { padding-left: 34px; border-left: 1px solid var(--line); }
+.lc h3 { margin: 0; font-family: var(--serif); font-size: 30px; font-weight: 500; }
+.lc h3 i { color: var(--mute); font-weight: 400; }
+.lc p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--mute); max-width: 46ch; }
+/* the tombstone, ∎ */
+.tomb { position: absolute; right: 34px; bottom: 34px; width: 12px; height: 12px; background: var(--ink); transition: background .3s, transform .3s; }
+.lc:hover .tomb { background: var(--accent); transform: rotate(45deg); }
+
+@media (max-width: 980px) {
+  .lem { grid-template-columns: minmax(0, 1fr); }
+  .lc:nth-child(2n) { padding-left: 0; border-left: 0; }
+}

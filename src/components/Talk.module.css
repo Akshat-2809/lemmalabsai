@@ -1,0 +1,15 @@
+.doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 56px; }
+.door { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 300px; padding: 28px; border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); background: var(--card); overflow: hidden; transition: color .3s; }
+.door::before { content: ""; position: absolute; inset: 0; background: var(--ink); transform: translateY(101%); transition: transform .45s var(--ease); z-index: 0; }
+.door > * { position: relative; z-index: 1; }
+.door:hover, .door:focus-visible { color: var(--paper); }
+.door:hover::before, .door:focus-visible::before { transform: none; }
+.sym { font-family: var(--serif); font-size: 64px; line-height: 1; font-style: italic; color: var(--accent); }
+.door h3 { margin: 0 0 8px; font-size: 26px; font-weight: 600; letter-spacing: -.01em; }
+.door p { margin: 0; font-size: 16px; line-height: 1.55; opacity: .8; }
+.go { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; overflow-wrap: anywhere; }
+
+@media (max-width: 980px) {
+  .doors { grid-template-columns: minmax(0, 1fr); }
+  .door { min-height: 240px; }
+}

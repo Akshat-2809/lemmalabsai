@@ -1,0 +1,12 @@
+.faq { margin-top: 52px; border-top: 1.5px solid var(--ink); }
+.fq { border-bottom: 1px solid var(--line); }
+.fq h3 { margin: 0; font: inherit; }
+.fq button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 76px; padding: 18px 0; background: transparent; border: 0; font: inherit; text-align: left; cursor: pointer; color: var(--ink); }
+.fq button span:first-child { font-family: var(--serif); font-size: 26px; font-weight: 400; }
+.pm { flex: none; width: 36px; height: 36px; border: 1.5px solid var(--ink); display: flex; align-items: center; justify-content: center; font-size: 20px; transition: background .25s, color .25s; }
+.fq button:hover .pm { background: var(--ink); color: var(--paper); }
+.fq p { margin: 0 0 26px; font-size: 17px; line-height: 1.65; color: var(--mute); max-width: 70ch; }
+
+@media (max-width: 560px) {
+  .fq button span:first-child { font-size: 22px; }
+}
